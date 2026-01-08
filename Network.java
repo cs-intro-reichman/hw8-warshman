@@ -89,10 +89,9 @@ public class Network {
 
         //iterate through every user thats not "user"
         for (int i = 0; i < this.userCount; i++) {
+            if (this.users[i].getName().equals(name)) continue;
+
             int mutualCount = 0;
-            if (this.users[i].getName().equals(name)){
-                continue;
-            }
             User other = this.users[i];
             String [] otherFollows = other.getfFollows();
             for (int j = 0; j < other.getfCount(); j++) {
@@ -101,7 +100,7 @@ public class Network {
                 }
             }
 
-            if (mutualCount >= mostMutuals) {
+            if (mutualCount > mostMutuals) {
                 mostMutuals = mutualCount;
                 recommended = other.getName();
             }

@@ -152,7 +152,7 @@ public class Network {
             User user = this.users[i];
             res += this.users[i].getName() + " -> ";
             for (int j = 0; j < user.getfCount(); j++) {
-                res += user.getfFollows()[j] + (j == user.getfCount() - 1 ? "" : " ");
+                res += user.getfFollows()[j] + " ";
             }
         }
 

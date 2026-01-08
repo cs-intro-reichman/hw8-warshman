@@ -124,6 +124,7 @@ public class Network {
             int follows = followeeCount(user.getName());
             if (follows >= mostFollowers) {
                 mostFollowed = user.getName();
+                mostFollowers = follows;
             }
 
         }

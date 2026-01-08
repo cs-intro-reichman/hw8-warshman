@@ -122,7 +122,7 @@ public class Network {
         for (int i = 0; i < this.userCount; i++) {
             User user = this.users[i];
             int follows = followeeCount(user.getName());
-            if (follows >= mostFollowers) {
+            if (follows > mostFollowers) {
                 mostFollowed = user.getName();
                 mostFollowers = follows;
             }

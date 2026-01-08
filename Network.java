@@ -120,23 +120,14 @@ public class Network {
         String mostFollowed = "";
 
         for (int i = 0; i < this.userCount; i++) {
-            int follows = 0;
             User user = this.users[i];
-
-            for (int j = 0; j != i & j < this.userCount; j++) {
-                User other = this.users[j];
-                //check if other follows user
-                if (other.follows(user.getName())) {
-                    follows++;
-                }
-            }
-
+            int follows = followeeCount(user.getName());
             if (follows >= mostFollowers) {
                 mostFollowed = user.getName();
             }
 
         }
-        return mostFollowed;
+        return mostFollowed == "" ? null : mostFollowed;
     }
 
     /** Returns the number of times that the given name appears in the follows lists of all
@@ -144,14 +135,10 @@ public class Network {
     private int followeeCount(String name) {
         int follows = 0;
         for (int i = 0; i < this.userCount; i++) {
-                User user = this.users[i];
-                if (user.getName().equals(name)) {
-                    //ignore
-                } else {
-                    if (user.follows(user.getName())) {
-                    follows++;
-                }
-                }
+            User user = this.users[i];
+                if (user.follows(name)) {
+                follows++;
+            }
                 
             }
         return follows;

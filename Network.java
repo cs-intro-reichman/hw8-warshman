@@ -66,7 +66,7 @@ public class Network {
         }
         
         this.getUser(name1).addFollowee(name2);
-        return false;
+        return true;
     }
     
     /** For the user with the given name, recommends another user to follow. The recommended user is
